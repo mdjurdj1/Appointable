@@ -1,2 +1,6 @@
-<h1>Welcome#home</h1>
-<p>Find me in app/views/welcome/home.html.erb</p>
+<% if user_signed_in? %>
+<h1>Welcome Home <%=current_user.email%>!</h1>
+<% else %>
+<h1>Welcome to Appointment Manager!</h1>
+<%= render 'layouts/login' %>
+<% end %>

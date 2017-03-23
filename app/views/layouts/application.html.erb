@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ApplicationManager</title>
+    <title>Appointment Manager</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,16 @@
   </head>
 
   <body>
-    <%= yield %>
+      <%= render 'layouts/navbar' %>
+      <div class="container">
+      <%= yield %>
+      <!-- <footer>
+        <p>&copy; @mdjurdj1 2017</p>
+      </footer> -->
+
+    </div><!--/container-->
+
   </body>
+
+
 </html>

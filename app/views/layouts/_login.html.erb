@@ -1,0 +1,7 @@
+<%= form_for @user, method: "post", url: user_session_path do |f| %>
+<%= f.text_field :email, :placeholder=>"Email Address" %> <br /> <br />
+<%= f.password_field :password, :placeholder=>"Password" %> <br /> <br />
+<%= f.submit "Sign In" %> <br /> <br />
+<% end %>
+<%= link_to "New Here? Join us!", new_user_registration_path %>
+
