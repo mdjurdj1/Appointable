@@ -1,3 +1,9 @@
-<%= week_calendar number_of_weeks: 1 do |date| %>
+<%= month_calendar events: @appointments do |date, appointments| %>
   <%= date %>
+
+  <% appointments.each do |appointment| %>
+    <div>
+      <%= appointment.name %>
+    </div>
+  <% end %>
 <% end %>

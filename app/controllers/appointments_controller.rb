@@ -4,4 +4,8 @@ class AppointmentsController < ApplicationController
     @appointments = current_user.appointments.all
   end
 
+  def new
+    @appointment = Appointment.new
+  end
+
 end
