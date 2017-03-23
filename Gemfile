@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'twitter-bootstrap-rails'
 gem "less-rails"
 gem "therubyracer"
+gem "simple_calendar", "~> 2.0"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

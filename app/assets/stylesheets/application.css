@@ -12,5 +12,6 @@
  *
  *= require_tree .
  *= require_self
+ *= require simple_calendar
  *= require bootstrap_and_overrides
  */
