@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+  before_action :set_appointment, only: [:show, :edit]
 
   def index
     @appointments = current_user.appointments.all
@@ -18,11 +19,17 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @appointment = Appointment.find_by(id: params[:id])
+  end
+
+  def edit
   end
 
 
   private
+  def set_appointment
+    @appointment = Appointment.find_by(id: params[:id])
+  end
+
   def appointment_params
     params.require(:appointment).permit(:name, :description, :start_time)
   end
