@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: [:show, :edit]
+  before_action :set_appointment, only: [:show, :edit, :update]
 
   def index
     @appointments = current_user.appointments.all
@@ -22,6 +22,15 @@ class AppointmentsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @appointment.update(appointment_params)
+      flash[:notice] = "Successfully update appointment!"
+      redirect_to appointment_path(@appointment)
+    else
+      render :edit, flash[:notice] => "Update unsuccessful"
+    end
   end
 
 
