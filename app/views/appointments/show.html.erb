@@ -2,6 +2,7 @@
 <legend><%= @appointment.name %></legend> <br />
 <p>Description: <%= @appointment.description %></p> <br />
 <p>Start Time: <%= @appointment.start_time %></p> <br />
+<p>Contact: <%= @appointment.contact.name %> | <%= @appointment.contact.email %> | <%= @appointment.contact.phone_number %></p>
 </fieldset>
 
 <%= link_to "Edit", edit_appointment_path %> | <%= link_to "Back", appointments_path %>

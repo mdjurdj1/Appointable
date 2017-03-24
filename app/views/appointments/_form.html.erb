@@ -7,11 +7,11 @@
   <% else %> Or, save a new Contact for this appointment:  <br /><br />
   <%= f.fields_for :contact, Contact.new do |g| %>
     <%= g.label :name %> <br />
-    <%= g.text_field :name %> <br /><br />
+    <%= g.text_field :name %> <br />
     <%= g.label :email %> <br />
     <%= g.text_field :email %> <br />
     <%= g.label :phone_number %> <br />
-    <%= g.text_field :phone_number %> <br /><br />
+    <%= g.text_field :phone_number %> <br />
     <% end %>
   <%= f.submit %>
 <% end %>
