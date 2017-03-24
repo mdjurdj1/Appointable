@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 20170324012329) do
     t.string   "name"
     t.string   "phone_number"
     t.string   "email"
-    t.integer  "appointment_id_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.index ["appointment_id_id"], name: "index_contacts_on_appointment_id_id"
+    t.integer  "appointment_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["appointment_id"], name: "index_contacts_on_appointment_id"
   end
 
   create_table "users", force: :cascade do |t|
