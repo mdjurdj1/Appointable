@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: [:show, :edit, :update]
+  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
   def index
     @appointments = current_user.appointments.all
@@ -31,6 +31,12 @@ class AppointmentsController < ApplicationController
     else
       render :edit, flash[:notice] => "Update unsuccessful"
     end
+  end
+
+  def destroy
+    @appointment.delete
+    flash[:notice] = "Successfully deleted appointment!"
+    redirect_to appointments_path
   end
 
 
