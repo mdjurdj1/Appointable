@@ -1,6 +1,6 @@
 class Appointment < ApplicationRecord
   belongs_to :user
-  belongs_to :contact
+  has_one :contact
   # accepts_nested_attributes_for :contact
 
   def contact_attributes=(contact_attr)
