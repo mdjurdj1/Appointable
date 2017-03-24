@@ -2,16 +2,21 @@
   <%= f.text_field :name, :placeholder=>"Name" %> <br /><br />
   <%= f.text_area :description, :placeholder=>"Description" %> <br /><br />
   <%= f.datetime_local_field :start_time %> <br /><br />
-  <% if current_user.contacts.any? %> Select a Contact:
-  <%= f.collection_select :contact_id, current_user.contacts, :id, :name, { prompt: true } %> <% end %> <br /><br />
-  Or, save a new Contact for this appointment:  <br /><br />
-  <%= f.fields_for :contact, Contact.new do |g| %>
-    <%= g.label :name %> <br />
-    <%= g.text_field :name %> <br />
-    <%= g.label :email %> <br />
-    <%= g.text_field :email %> <br />
-    <%= g.label :phone_number %> <br />
-    <%= g.text_field :phone_number %> <br /><br />
+  <% if current_user.contacts.any? %>
+    <p>Select a Contact:
+      <%= f.collection_select :contact_id, current_user.contacts, :id, :name, { prompt: true } %></p>
     <% end %>
+
+  Create a new Contact for this appointment:  <br /><br />
+  <div class="field">
+    <%= f.fields_for :contact, Contact.new do |g| %>
+      <p><%= g.label :name %>:
+      <%= g.text_field :name %> </p>
+      <p><%= g.label :email %>:
+      <%= g.text_field :email %> </p>
+      <p><%= g.label :phone_number, "Phone" %>:
+      <%= g.text_field :phone_number %> </p>
+      <% end %>
+  </div>
   <%= f.submit %>
 <% end %>

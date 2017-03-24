@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @appointment = current_user.appointments.build(appointment_params)
+    @appointment = Appointment.new(appointment_params.merge(user_id: current_user.id)) #instantiate an appointment associated with user, but unsaved
     if @appointment.save
       redirect_to appointment_path(@appointment)
     else
