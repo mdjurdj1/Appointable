@@ -3,8 +3,8 @@
   <%= f.text_area :description, :placeholder=>"Description" %> <br /><br />
   <%= f.datetime_local_field :start_time %> <br /><br />
   <% if current_user.contacts.any? %> Select a Contact:
-  <%= f.collection_select :contact_id, current_user.contacts, :id, :name, { prompt: true } %>
-  <% else %> Or, save a new Contact for this appointment:  <br /><br />
+  <%= f.collection_select :contact_id, current_user.contacts, :id, :name, { prompt: true } %> <% end %> <br /><br />
+  Or, save a new Contact for this appointment:  <br /><br />
   <%= f.fields_for :contact, Contact.new do |g| %>
     <%= g.label :name %> <br />
     <%= g.text_field :name %> <br />
@@ -14,5 +14,4 @@
     <%= g.text_field :phone_number %> <br /><br />
     <% end %>
   <%= f.submit %>
-<% end %>
 <% end %>
