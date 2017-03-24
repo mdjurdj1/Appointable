@@ -1,8 +1,9 @@
 class Appointment < ApplicationRecord
   belongs_to :user
-  has_one :contact
-  validates_associated :contact
-  # accepts_nested_attributes_for :contact
+  belongs_to :contact
+  # validates_associated :contact
+  validates :contact_id, presence: true
+  accepts_nested_attributes_for :contact
 
   def contact_attributes=(contact_attr)
     if contact_attr[:name].present?
