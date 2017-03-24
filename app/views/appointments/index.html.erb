@@ -3,7 +3,7 @@
 
   <% appointments.each do |appointment| %>
     <div>
-      <%= appointment.name %>
+      <%= link_to appointment.name, appointment_path(appointment) %>
     </div>
   <% end %>
 <% end %>

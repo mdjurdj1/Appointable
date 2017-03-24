@@ -26,7 +26,7 @@ class AppointmentsController < ApplicationController
 
   def update
     if @appointment.update(appointment_params)
-      flash[:notice] = "Successfully update appointment!"
+      flash[:notice] = "Successfully updated appointment!"
       redirect_to appointment_path(@appointment)
     else
       render :edit, flash[:notice] => "Update unsuccessful"
