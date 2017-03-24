@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :contacts
   resources :appointments
   devise_for :users
   root 'welcome#home'
