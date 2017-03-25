@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new(contact_params.merge(user_id: current_user.id)) #instantiate a contact associated with user, but unsaved
+    @contact = Contact.new(contact_params.merge(user_id: current_user.id)) #instantiate a contact associated with current_user, but unsaved
     if @contact.save
       redirect_to contact_path(@contact)
     else
@@ -28,7 +28,7 @@ class ContactsController < ApplicationController
     if @contact.update(contact_params)
       redirect_to contact_path(@contact)
     else
-      render :edit, flash[:notice] => "Update unsuccessful."
+      render :edit #add field with errors here
     end
   end
 
