@@ -13,19 +13,8 @@
     <td class="left"><%= f.datetime_local_field :start_time %> </td>
   </tr>
 
-  <% if current_user.contacts.any? %>
-    <tr>
-      <td><strong>Contact</strong></td>
-      <td class="left"><%= f.collection_select :contact_id, current_user.contacts, :id, :name, :include_blank => true %></td>
-    </tr>
-  <% end %>
-
-  <% if current_user.locations.any? %>
-    <tr>
-      <td><strong>Location</strong></td>
-      <td class="left"><%= f.collection_select :location_id, current_user.locations, :id, :name, :include_blank => true %></td>
-    </tr>
-  <% end %> <td></td>
+  <%= render partial: "existing_fields", locals: {f: f} %>
+    <td></td>
 
     <tr>
       <td></td>
