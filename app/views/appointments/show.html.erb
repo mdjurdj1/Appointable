@@ -1,8 +1,11 @@
 <fieldset>
-<legend><%= @appointment.name %></legend> <br />
-<p>Description: <%= @appointment.description %></p> <br />
-<p>Start Time: <%= @appointment.start_time %></p> <br />
+  <legend><%= @appointment.name %></legend>
+</fieldset>
+
+<p>Description: <%= @appointment.description %></p>
+<p>Start Time: <%= @appointment.start_time %></p>
 <p>Contact: <%= @appointment.contact.name %> | <%= @appointment.contact.email %> | <%= @appointment.contact.phone_number %></p>
+<p>Location: <%= link_to @appointment.location.name, location_path(@appointment.location) %></p>
 </fieldset>
 
 <%= link_to "Edit", edit_appointment_path %> | <%= link_to "Back", appointments_path %>

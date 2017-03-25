@@ -5,7 +5,7 @@
 
   <% if current_user.contacts.any? %>
     <p>Select a Contact:
-      <%= f.collection_select :contact_id, current_user.contacts, :id, :name, { prompt: true } %></p>
+      <%= f.collection_select :contact_id, current_user.contacts, :id, :name, :include_blank => true %></p>
     <% end %>
   Create a new Contact for this appointment:  <br /><br />
     <%= f.fields_for :contact, Contact.new do |g| %>
@@ -19,7 +19,7 @@
 
   <% if current_user.locations.any? %>
     <p>Select a Location:
-      <%= f.collection_select :location_id, current_user.locations, :id, :name, { prompt: true } %></p>
+      <%= f.collection_select :location_id, current_user.locations, :id, :name, :include_blank => true %></p>
     <% end %>
   Create a new Location for this appointment:  <br /><br />
     <%= f.fields_for :location, Location.new do |g| %>
