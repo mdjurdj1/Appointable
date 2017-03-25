@@ -1,0 +1,8 @@
+<fieldset>
+  <legend><%= location.name %></legend>
+  <p><%= location.street_address %></p>
+  <p><%= location.city %></p>
+  <p><%= location.state %></p>
+  <p><%= location.zip_code %></p>
+  <p><%= link_to "Edit", edit_location_path(location) %> | <%= link_to "Delete", location_path(location), method: :delete, data: { confirm: "Are you sure you want to delete this appointment?" } %></p>
+</fieldset> <br />
