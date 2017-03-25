@@ -1,4 +1,5 @@
 <fieldset>
   <legend>New Contact</legend>
-<%= render 'form' %>
 </fieldset>
+
+<%= render partial: 'form', locals: {contact: @contact}%>

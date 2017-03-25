@@ -2,13 +2,12 @@
   <%= f.text_field :name, :placeholder=>"Name" %> <br /><br />
   <%= f.text_area :description, :placeholder=>"Description" %> <br /><br />
   <%= f.datetime_local_field :start_time %> <br /><br />
+
   <% if current_user.contacts.any? %>
     <p>Select a Contact:
       <%= f.collection_select :contact_id, current_user.contacts, :id, :name, { prompt: true } %></p>
     <% end %>
-
   Create a new Contact for this appointment:  <br /><br />
-  <div class="field">
     <%= f.fields_for :contact, Contact.new do |g| %>
       <p><%= g.label :name %>:
       <%= g.text_field :name %> </p>
@@ -17,6 +16,15 @@
       <p><%= g.label :phone_number, "Phone" %>:
       <%= g.text_field :phone_number %> </p>
       <% end %>
-  </div>
+
+  <% if current_user.locations.any? %>
+    <p>Select a Location:
+      <%= f.collection_select :location_id, current_user.locations, :id, :name, { prompt: true } %></p>
+    <% end %>
+  Create a new Location for this appointment:  <br /><br />
+    <%= f.fields_for :location, Location.new do |g| %>
+      <p><%= g.label :name %>:
+      <%= g.text_field :name %> </p>
+      <% end %>
   <%= f.submit %>
 <% end %>
