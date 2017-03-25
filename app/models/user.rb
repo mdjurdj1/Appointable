@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :appointments
   has_many :contacts
+  has_many :locations 
 end
