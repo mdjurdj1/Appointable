@@ -22,20 +22,20 @@
 
     <tr>
       <td></td>
-      <td>Create a new Contact for this appointment</td>
+      <td>Create a new Contact for this appointment: </td>
     </tr>
     <%= f.fields_for :contact, Contact.new do |g| %>
     <tr>
       <td><%= g.label :name %></td>
-      <td class="left"><%= g.text_field :name %> </td>
+      <td class="left"><%= g.text_field :name, :placeholder=> "Contact name" %> </td>
     </tr>
     <tr>
       <td><%= g.label :email %></td>
-      <td class="left"><%= g.text_field :email %> </td>
+      <td class="left"><%= g.text_field :email, :placeholder=> "Contact email" %> </td>
     </tr>
     <tr>
       <td><%= g.label :phone_number, "Phone" %></td>
-      <td class="left"><%= g.text_field :phone_number %> </td>
+      <td class="left"><%= g.text_field :phone_number, :placeholder=> "Phone Number" %> </td>
     </tr>
       <% end %>
 
@@ -53,7 +53,7 @@
     <%= f.fields_for :location, Location.new do |g| %>
       <tr>
         <td><%= g.label :name %></td>
-        <td class="left"><%= g.text_field :name %> </td>
+        <td class="left"><%= g.text_field :name, :placeholder=>"Location Name" %> </td>
       </tr>
       <% end %>
   <tr>
