@@ -2,4 +2,5 @@
   <legend><%= contact.name %></legend>   
   <p><%= contact.email %></p>
   <p><%= contact.phone_number %></p>
+  <p><%= link_to "Edit", edit_contact_path(contact) %> | <%= link_to "Delete", contact_path(contact), method: :delete %> 
 </fieldset> <br />
