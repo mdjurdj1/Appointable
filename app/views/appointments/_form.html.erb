@@ -13,49 +13,38 @@
     <td class="left"><%= f.datetime_local_field :start_time %> </td>
   </tr>
 
-<% if current_user.contacts.any? %>
-  <tr>
-    <td><strong>Select a Contact</strong></td>
-    <td class="left"><%= f.collection_select :contact_id, current_user.contacts, :id, :name, :include_blank => true %></td>
-  </tr>
-<% end %>
+  <% if current_user.contacts.any? %>
+    <tr>
+      <td><strong>Contact</strong></td>
+      <td class="left"><%= f.collection_select :contact_id, current_user.contacts, :id, :name, :include_blank => true %></td>
+    </tr>
+  <% end %>
+
+  <% if current_user.locations.any? %>
+    <tr>
+      <td><strong>Location</strong></td>
+      <td class="left"><%= f.collection_select :location_id, current_user.locations, :id, :name, :include_blank => true %></td>
+    </tr>
+  <% end %> <td></td>
 
     <tr>
       <td></td>
       <td>Create a new Contact for this appointment: </td>
     </tr>
     <%= f.fields_for :contact, Contact.new do |g| %>
-    <tr>
-      <td><%= g.label :name %></td>
-      <td class="left"><%= g.text_field :name, :placeholder=> "Contact name" %> </td>
-    </tr>
-    <tr>
-      <td><%= g.label :email %></td>
-      <td class="left"><%= g.text_field :email, :placeholder=> "Contact email" %> </td>
-    </tr>
-    <tr>
-      <td><%= g.label :phone_number, "Phone" %></td>
-      <td class="left"><%= g.text_field :phone_number, :placeholder=> "Phone Number" %> </td>
-    </tr>
-      <% end %>
-
-  <% if current_user.locations.any? %>
-  <tr>
-    <td><strong>Select a Location</strong></td>
-    <td class="left"><%= f.collection_select :location_id, current_user.locations, :id, :name, :include_blank => true %></td>
-  </tr>
+      <%= render partial: "contact_fields", locals: {g: g} %>
     <% end %>
+    <td></td>
 
   <tr>
     <td></td>
     <td>Create a new Location for this appointment: </td>
   </tr>
     <%= f.fields_for :location, Location.new do |g| %>
-      <tr>
-        <td><%= g.label :name %></td>
-        <td class="left"><%= g.text_field :name, :placeholder=>"Location Name" %> </td>
-      </tr>
-      <% end %>
+      <%= render partial: "location_fields", locals: {g: g} %>
+    <% end %>
+    <td></td>
+
   <tr>
     <td></td>
     <td class="left"><%= f.submit %></td>
