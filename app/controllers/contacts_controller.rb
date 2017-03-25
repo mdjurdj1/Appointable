@@ -5,6 +5,19 @@ class ContactsController < ApplicationController
     @contacts = current_user.contacts
   end
 
+  def new
+    @contact = current_user.contacts.build
+  end
+
+  def create
+    @contact = Contact.new(contact_params.merge(user_id: current_user.id)) #instantiate a contact associated with user, but unsaved
+    if @contact.save
+      redirect_to contact_path(@contact)
+    else
+      render :new
+    end
+  end
+
   def show
   end
 
@@ -12,11 +25,26 @@ class ContactsController < ApplicationController
   end
 
   def update
-  end 
+    if @contact.update(contact_params)
+      redirect_to contact_path(@contact)
+    else
+      render :edit, flash[:notice] => "Update unsuccessful."
+    end
+  end
+
+  def destroy
+    @contact.delete
+    flash[:notice] = "Successfully deleted contact."
+    redirect_to contacts_path
+  end
 
 
   private
   def set_contact
     @contact = Contact.find_by(id: params[:id])
+  end
+
+  def contact_params
+    params.require(:contact).permit(:name, :email, :phone_number)
   end
 end
