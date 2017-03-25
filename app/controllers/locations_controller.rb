@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :set_location, only: [:show]
+  before_action :set_location, only: [:show, :edit, :update, :destroy]
 
   def index
     @locations = current_user.locations
@@ -19,6 +19,23 @@ class LocationsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @location.update(location_params)
+      redirect_to location_path(@location)
+    else
+      render :edit #add field with errors here
+    end
+  end
+
+  def destroy
+    @location.delete
+    flash[:notice] = "Successfully deleted location."
+    redirect_to locations_path
   end
 
   private
