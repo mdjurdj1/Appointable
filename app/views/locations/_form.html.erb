@@ -1,0 +1,27 @@
+<table>
+<%= form_for location do |f| %>
+  <tr> 
+    <td><%= f.label :name %></td>
+    <td> <%= f.text_field :name, :placeholder=>"Name" %> </td>
+  </tr>
+  <tr>
+    <td><%= f.label :street_address %></td>
+    <td><%= f.text_field :street_address, :placeholder=>"Street Address" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :zip_code %></td> 
+    <td><%= f.text_field :zip_code, :placeholder=>"Street Address" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :city %></td> 
+    <td><%= f.text_field :city, :placeholder=>"Street Address" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :state %></td> 
+    <td><%= f.text_field :state, :placeholder=>"Street Address" %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit %></td>
+  </tr>
+<% end %>
+</table>
