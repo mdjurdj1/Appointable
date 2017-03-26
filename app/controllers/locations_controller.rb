@@ -25,6 +25,7 @@ class LocationsController < ApplicationController
   end
 
   def update
+    # raise @location.errors.full_messages
     if @location.update(location_params)
       redirect_to location_path(@location)
     else

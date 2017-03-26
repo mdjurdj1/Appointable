@@ -1,9 +1,19 @@
 <%= form_for contact do |f| %>
-  <p><%= f.label :name %>
-  <%= f.text_field :name %> </p>
-  <p><%= f.label :email %>
-  <%= f.text_field :email %> </p>
-  <p><%= f.label :phone_number, "Phone" %>
-  <%= f.text_field :phone_number %> </p>
-<%= f.submit %>
+<table>
+  <tr>
+    <td><%= f.label :name %></td>
+    <td class="left"><%= f.text_field :name %> </td>
+  </tr>
+  <tr>
+    <td><%= f.label :email %></td>
+    <td class="left"><%= f.text_field :email %> </td>
+  </tr>
+  <tr>
+    <td><%= f.label :phone_number, "Phone" %></td>
+    <td class="left"><%= f.text_field :phone_number %> </td>
+  </tr>
+  <tr> <td></td>
+    <td class="left"><%= f.submit %></td>
+  </tr>
+  </table>
 <% end %>
