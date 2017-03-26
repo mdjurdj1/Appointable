@@ -1,0 +1,39 @@
+//****************** CALENDAR STYLING
+
+span.month-name {
+  color: #438FCF;
+  font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+}
+
+.simple-calendar {
+  .day {
+    height: 100px;
+    border: 1px solid black;
+    position: relative;
+  }
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+}

@@ -1,3 +1,37 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//****************** HEADER FORMATTING ON WELCOME PAGE
+
+h1.textHeader {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+span.welcome {
+  color: #438FCF;
+  font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+	font-size: 28px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+
+span.welcome2 {
+  color: black;
+  font-family: "Arial Narrow", Arial, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+  margin-left: 10px;
+}
+
+// *********************END HEADER STYLING

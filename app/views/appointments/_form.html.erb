@@ -18,7 +18,7 @@
 
     <tr>
       <td></td>
-      <td>Create a new Contact for this appointment: </td>
+      <td class="left">Create a new Contact for this appointment: </td>
     </tr>
     <%= f.fields_for :contact, Contact.new do |g| %>
       <%= render partial: "contact_fields", locals: {g: g} %>
@@ -27,7 +27,7 @@
 
   <tr>
     <td></td>
-    <td>Create a new Location for this appointment: </td>
+    <td class="left">Create a new Location for this appointment: </td>
   </tr>
     <%= f.fields_for :location, Location.new do |g| %>
       <%= render partial: "location_fields", locals: {g: g} %>
