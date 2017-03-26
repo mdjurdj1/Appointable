@@ -1,8 +1,8 @@
 <%= week_calendar events: appointments do |date, appointments| %>
-  <%= date.mday %>
+  <%= date.mday %> <br />
 
 
   <% appointments.each do |appointment| %>
-      * <%= link_to appointment.name, edit_appointment_path(appointment) %> <br />
+      * <span class="appt_link"><%= link_to appointment.name, edit_appointment_path(appointment) %> </span><br />
   <% end %>
 <% end %>
