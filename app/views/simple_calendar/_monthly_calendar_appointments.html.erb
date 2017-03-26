@@ -1,5 +1,5 @@
 <%= month_calendar events: appointments do |date, appointments| %>
-  <%= date.mday %> <br />
+  <span class="cal_date"><%= date.mday %></span> <br />
 
 
   <% appointments.each do |appointment| %>

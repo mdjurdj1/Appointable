@@ -36,5 +36,10 @@ span.month-name {
   .current-month {}
 
   .has-events {
+    text-align: left;
+  }
+
+  .has-events span.cal_date {
+    float:right;
   }
 }
