@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -29,7 +30,7 @@ class AppointmentsController < ApplicationController
       flash[:notice] = "Successfully updated appointment!"
       redirect_to appointment_path(@appointment)
     else
-      render :edit, flash[:notice] => "Update unsuccessful"
+      render :edit, flash[:notice] => "Update unsuccessful."
     end
   end
 

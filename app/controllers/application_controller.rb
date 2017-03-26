@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
   private
   def set_user
     @user ||= User.new
-  end 
+  end
 
 end
