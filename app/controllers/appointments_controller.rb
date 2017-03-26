@@ -1,9 +1,9 @@
 class AppointmentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
+  before_action :set_appointments, only: [:index, :new]
 
   def index
-    @appointments = current_user.appointments.all
   end
 
   def new
@@ -42,6 +42,10 @@ class AppointmentsController < ApplicationController
 
 
   private
+  def set_appointments
+    @appointments = current_user.appointments.all
+  end
+
   def set_appointment
     @appointment = Appointment.find_by(id: params[:id])
   end

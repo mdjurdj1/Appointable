@@ -1,6 +1,7 @@
 <fieldset>
   <legend><%= contact.name %></legend>
-  <p><%= contact.email %></p>
-  <p><%= contact.phone_number %></p>
+</fieldset>
+  <p><strong>Email: </strong><%= contact.email %></p>
+  <p><strong>Phone Number: </strong><%= contact.phone_number %></p>
   <p><%= link_to "Edit", edit_contact_path(contact) %> | <%= link_to "Delete", contact_path(contact), method: :delete, data: { confirm: "Are you sure you want to delete this appointment?" } %></p>
-</fieldset> <br />
+   <br />
