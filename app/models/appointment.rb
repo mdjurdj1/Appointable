@@ -5,6 +5,7 @@ class Appointment < ApplicationRecord
   belongs_to :user
   belongs_to :contact
   belongs_to :location
+  scope :upcoming_appointments, -> { where('start_time > ?', DateTime.now) }
 
   def contact_attributes=(contact_attr)
     if contact_attr[:name].present?
