@@ -5,7 +5,8 @@ class Appointment < ApplicationRecord
   belongs_to :user
   belongs_to :contact
   belongs_to :location
-  scope :upcoming_appointments, -> { where('start_time > ?', DateTime.now) }
+  scope :search, lambda {|search| where(["name LIKE ?", "%#{search}%"])}
+
 
   def contact_attributes=(contact_attr)
     if contact_attr[:name].present?

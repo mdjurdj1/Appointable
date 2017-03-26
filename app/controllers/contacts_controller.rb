@@ -4,6 +4,9 @@ class ContactsController < ApplicationController
 
   def index
     @contacts = current_user.contacts
+    if !params[:contact].blank?
+      @contacts = current_user.contacts.search(params[:contact])
+    end 
   end
 
   def new

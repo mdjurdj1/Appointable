@@ -1,1 +1,9 @@
+<div>
+  <h4>Search By Name:</h4>
+  <%= form_tag("/contacts", method: :get) do %>
+    <%= text_field_tag "contact" %>
+    <%= submit_tag "Search" %>
+    <% end %>
+  </div> <br />
+
 <%= render(@contacts) || "You haven't saved any contacts yet!" %>
