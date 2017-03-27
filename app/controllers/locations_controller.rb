@@ -45,7 +45,7 @@ class LocationsController < ApplicationController
 
   private
   def set_location
-    @location = Location.find_by(id: params[:id])
+    @location = current_user.locations.find_by(id: params[:id])
   end
 
   def location_params

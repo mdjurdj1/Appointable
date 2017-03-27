@@ -5,11 +5,19 @@ class AppointmentsController < ApplicationController
 
   def index
     if params[:location_id]
-      @appointments = Location.find_by(id: params[:location_id]).list_upcoming_appointments
-      render "appointments_without_calendar"
+      if current_user.locations.find_by(id: params[:location_id])
+        @appointments = current_user.locations.find_by(id: params[:location_id]).list_upcoming_appointments
+        render "appointments_without_calendar"
+      else
+        redirect_to appointments_path
+      end
     elsif params[:contact_id]
-      @appointments = Contact.find_by(id: params[:contact_id]).list_upcoming_appointments
-      render "appointments_without_calendar"
+      if current_user.contacts.find_by(id: params[:contact_id])
+        @appointments = current_user.contacts.find_by(id: params[:contact_id]).list_upcoming_appointments
+        render "appointments_without_calendar"
+      else
+        redirect_to appointments_path
+      end 
     elsif params[:week]
       render "simple_calendar/_weekly_calendar_appointments", locals: {appointments: @appointments}
     elsif params[:list]
@@ -63,7 +71,7 @@ class AppointmentsController < ApplicationController
   end
 
   def set_appointment
-    @appointment = Appointment.find_by(id: params[:id])
+    @appointment = current_user.appointments.find_by(id: params[:id])
   end
 
   def appointment_params

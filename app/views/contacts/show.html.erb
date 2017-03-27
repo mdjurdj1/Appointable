@@ -1,1 +1,5 @@
+<% if @contact %>
 <%= render partial: 'contact', locals: {contact: @contact} %>
+<% else %>
+No such contact was found!
+<% end %>

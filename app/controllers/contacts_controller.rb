@@ -14,7 +14,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new(contact_params.merge(user_id: current_user.id)) #instantiate a contact associated with current_user, but unsaved
+    @contact = Contact.new(contact_params.merge(user_id: current_user.id)) #instantiate a contact associated with current_user, but unsaved.
     if @contact.save
       redirect_to contact_path(@contact)
     else
@@ -45,7 +45,7 @@ class ContactsController < ApplicationController
 
   private
   def set_contact
-    @contact = Contact.find_by(id: params[:id])
+    @contact = current_user.contacts.find_by(id: params[:id])
   end
 
   def contact_params

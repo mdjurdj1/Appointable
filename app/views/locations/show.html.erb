@@ -1,1 +1,5 @@
+<% if @location %>
 <%= render partial: 'location', locals: {location: @location} %>
+<% else %>
+<p>No such location was found!</p>
+<% end %>

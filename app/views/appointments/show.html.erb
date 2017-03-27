@@ -1,1 +1,5 @@
+<% if @appointment %>
 <%= render partial: 'appointment', locals: {appointment: @appointment} %>
+<% else %>
+No such appointment was found!
+<% end %>
