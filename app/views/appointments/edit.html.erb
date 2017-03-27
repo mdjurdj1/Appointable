@@ -5,9 +5,9 @@
         <legend>Edit this appointment!</legend>
       </fieldset>
 
-        <%= render partial: 'appointments/form', locals: {appointment: @appointment} %>
+        <%= render partial: 'appointments/form', locals: {appointment: @appointment} %><br />
 
-      <p><%= link_to "Delete", @appointment, method: :delete, data: { confirm: "Are you sure you want to delete this appointment?" } %> </p>
+      <p class="delete_button"><%= link_to "Delete this Appointment", @appointment, method: :delete, data: { confirm: "Are you sure you want to delete this appointment?" } %> </p>
     </div>
 
   <div class="col-md-8">
