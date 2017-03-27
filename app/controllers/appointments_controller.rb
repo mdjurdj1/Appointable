@@ -23,7 +23,9 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params.merge(user_id: current_user.id)) #instantiate an appointment associated with user, but unsaved
     if @appointment.save
       redirect_to appointment_path(@appointment)
-    else
+    else #reset user association on failed appointment, set @appointments to not include failed appointment for partial
+      @appointment.user = nil
+      @appointments = current_user.appointments.select { |appt| appt.persisted? }
       render :new
     end
   end
