@@ -8,4 +8,7 @@ module AppointmentsHelper
       render partial: "simple_calendar/weekly_calendar_appointments", locals: {appointments: appointments}
    end
 
+   def show_contact_fields
+   end 
+
 end

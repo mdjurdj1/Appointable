@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
+  before_action :set_appointment, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_appointments, only: [:index, :new, :edit]
 
   def index
@@ -41,6 +41,8 @@ class AppointmentsController < ApplicationController
       flash[:notice] = "Successfully updated appointment!"
       redirect_to appointment_path(@appointment)
     else
+      @appointment.user = nil
+      @appointments = current_user.appointments.select { |appt| appt.persisted? }
       render :edit
     end
   end
