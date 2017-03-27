@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
   resources :locations do
-    resources :appointments, only: [:index, :show]
+    resources :appointments, only: [:index]
   end
 
-  resources :contacts
+  resources :contacts do
+    resources :appointments, only: [:index]
+  end
+  
   resources :appointments
   devise_for :users
   root 'welcome#home'

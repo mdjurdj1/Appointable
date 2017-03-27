@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include Appointable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -8,8 +9,4 @@ class User < ApplicationRecord
   has_many :contacts
   has_many :locations
   # scope :upcoming_appointments, -> { joins(:appointments).where('appointments.start_time > ?', DateTime.now) }
-
-  def upcoming_appointments
-    self.appointments.order(start_time: :asc).select{|appt| appt.start_time > DateTime.now}
-  end
 end

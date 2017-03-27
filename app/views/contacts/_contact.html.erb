@@ -1,6 +1,11 @@
 <fieldset>
   <legend><%= contact.name %></legend>
 </fieldset>
+
+  <% if contact.has_upcoming_appointments? %>
+    <p><%= link_to "Click to view upcoming appointments with this Contact.", contact_appointments_path(contact) %></p>
+  <% end %>
+
   <p><strong>Email: </strong><%= contact.email %></p>
   <p><strong>Phone Number: </strong><%= contact.phone_number %></p>
   <p><%= link_to "Edit", edit_contact_path(contact) %> | <%= link_to "Delete", contact_path(contact), method: :delete, data: { confirm: "Are you sure you want to delete this appointment?" } %></p>

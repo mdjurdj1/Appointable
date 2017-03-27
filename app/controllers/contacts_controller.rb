@@ -18,7 +18,6 @@ class ContactsController < ApplicationController
     if @contact.save
       redirect_to contact_path(@contact)
     else
-      # raise @contact.errors.full_messages.inspect
       render :new
     end
   end
