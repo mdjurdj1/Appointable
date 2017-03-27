@@ -8,8 +8,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/contacts">Contacts</a></li>
-        <li><a href="/locations">Locations</a></li>
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Appointments <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu" id="dropdown_nav">
@@ -18,10 +17,25 @@
             <li><%= link_to "Create Appointment", new_appointment_path %></a></li>
             <li class="divider"></li>
             <li><%= link_to "List Upcoming Appointments", appointments_path(:list=>"list") %></li>
-            <li class="divider"></li>
-            <li><a href="/contacts">View All Contacts</a></li>
           </ul>
         </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Contacts <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu" id="dropdown_nav">
+            <li><%= link_to "View all Contacts", contacts_path %>
+            <li><%= link_to "Create new Contact", new_contact_path %></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Locations <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu" id="dropdown_nav">
+            <li><%= link_to "View all Locations", locations_path %>
+            <li><%= link_to "Create new Location", new_location_path %></li>
+          </ul>
+        </li>
+
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
