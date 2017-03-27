@@ -1,9 +1,0 @@
-<%= month_calendar events: appointments do |date, appointments| %>
-  <%= date.mday %>
-
-  <% appointments.each do |appointment| %>
-    <div>
-      <%= link_to appointment.name, appointment_path(appointment) %>
-    </div>
-  <% end %>
-<% end %>
