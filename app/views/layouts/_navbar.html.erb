@@ -13,11 +13,11 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Appointments <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu" id="dropdown_nav">
-            <li><a href="/appointments">View this Month</a></li>
-            <li><a href="#">View this Week</a></li>
-            <li><a href="/appointments/new">Create Appointment</a></li>
+            <li><%= link_to "View this Month", appointments_path %>
+            <li><%= link_to "View this Week", appointments_path(:week=>"week") %></li>
+            <li><%= link_to "Create Appointment", new_appointment_path %></a></li>
             <li class="divider"></li>
-            <li><a href="#">View Upcoming Appointments</a></li>
+            <li><%= link_to "List Upcoming Appointments", appointments_path(:list=>"list") %></li>
             <li class="divider"></li>
             <li><a href="/contacts">View All Contacts</a></li>
           </ul>

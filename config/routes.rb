@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   resources :locations do
-    resources :appointments, only: [:index, :show, :new]
-  end 
+    resources :appointments, only: [:index, :show]
+  end
 
   resources :contacts
   resources :appointments

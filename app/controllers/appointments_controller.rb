@@ -7,6 +7,11 @@ class AppointmentsController < ApplicationController
     if params[:location_id]
       @appointments = Location.find_by(id: params[:location_id]).list_upcoming_appointments
       render "appointments_without_calendar"
+    elsif params[:week]
+      render "simple_calendar/_weekly_calendar_appointments", locals: {appointments: @appointments}
+    elsif params[:list]
+      @appointments = current_user.upcoming_appointments
+      render "appointments_without_calendar"
     end
   end
 
