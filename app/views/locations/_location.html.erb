@@ -2,6 +2,10 @@
   <legend><%= location.name %></legend>
 </fieldset>
 
+  <% if location.has_upcoming_appointments? %>
+    <p><%= link_to "Click to view upcoming appointments for this location.", location_appointments_path(location) %></p>
+  <% end %>
+
   <% if has_empty_fields?(location) %>
     <p>This location has incomplete data! Update it by selecting 'Edit'.</p>
   <% else %>

@@ -4,6 +4,10 @@ class AppointmentsController < ApplicationController
   before_action :set_appointments, only: [:index, :new, :edit]
 
   def index
+    if params[:location_id]
+      @appointments = Location.find_by(id: params[:location_id]).list_upcoming_appointments
+      render "appointments_without_calendar"
+    end
   end
 
   def new
@@ -30,7 +34,7 @@ class AppointmentsController < ApplicationController
       flash[:notice] = "Successfully updated appointment!"
       redirect_to appointment_path(@appointment)
     else
-      render :edit, flash[:notice] => "Update unsuccessful."
+      render :edit
     end
   end
 

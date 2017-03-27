@@ -1,0 +1,10 @@
+<fieldset>
+  <legend><%= appointment.name %></legend>
+</fieldset>
+
+<p>Description: <%= appointment.description %></p>
+<p>Start Time: <%= appt_start_time(appointment) %></p>
+<p>Contact: <%= link_to appointment.contact.name, contact_path(appointment.contact) %> | <%= appointment.contact.email %> | <%= appointment.contact.phone_number %></p>
+<p>Location: <%= link_to appointment.location.name, location_path(appointment.location) %></p>
+
+<%= link_to "Edit", edit_appointment_path(appointment) %> | <%= link_to "Back", appointments_path %>
