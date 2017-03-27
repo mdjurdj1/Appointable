@@ -1,13 +1,26 @@
+<% if contact.errors.any? %>
+  <div id="error_explanation">
+    <h4>There were some errors:</h4>
+    <ul>
+      <% contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<%end%>
+
 <%= form_for contact do |f| %>
 <table>
   <tr>
     <td><%= f.label :name %></td>
     <td class="left"><%= f.text_field :name %> </td>
   </tr>
-  <tr>
-    <td><%= f.label :email %></td>
-    <td class="left"><%= f.text_field :email %> </td>
-  </tr>
+
+    <tr>
+      <td><%= f.label :email %></td>
+      <td class="left"><%= f.text_field :email %> </td>
+    </tr>
+
   <tr>
     <td><%= f.label :phone_number, "Phone" %></td>
     <td class="left"><%= f.text_field :phone_number %> </td>

@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
     @contacts = current_user.contacts
     if !params[:contact].blank?
       @contacts = current_user.contacts.search(params[:contact])
-    end 
+    end
   end
 
   def new
@@ -18,6 +18,7 @@ class ContactsController < ApplicationController
     if @contact.save
       redirect_to contact_path(@contact)
     else
+      # raise @contact.errors.full_messages.inspect
       render :new
     end
   end
