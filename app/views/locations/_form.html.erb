@@ -1,3 +1,14 @@
+<% if location.errors.any? %>
+  <div id="error_explanation">
+    <h4>There were some errors:</h4>
+    <ul>
+      <% location.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<%end%>
+
   <%= form_for location do |f| %>
   <table>
     <tr>

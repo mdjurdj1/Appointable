@@ -8,5 +8,4 @@ class User < ApplicationRecord
   has_many :appointments
   has_many :contacts
   has_many :locations
-  # scope :upcoming_appointments, -> { joins(:appointments).where('appointments.start_time > ?', DateTime.now) }
 end

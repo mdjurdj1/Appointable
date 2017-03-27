@@ -1,6 +1,20 @@
 //****************** CALENDAR STYLING
 
+div.calendar-heading {
+    font-size: 18px;
+}
+
 span.month-name {
+  color: #438FCF;
+  font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+}
+
+span.week-calendar-title {
   color: #438FCF;
   font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
   font-size: 21px;
