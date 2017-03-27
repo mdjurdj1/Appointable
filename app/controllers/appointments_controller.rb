@@ -17,7 +17,7 @@ class AppointmentsController < ApplicationController
         render "appointments_without_calendar"
       else
         redirect_to appointments_path
-      end 
+      end
     elsif params[:week]
       render "simple_calendar/_weekly_calendar_appointments", locals: {appointments: @appointments}
     elsif params[:list]
@@ -34,7 +34,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params.merge(user_id: current_user.id)) #instantiate an appointment associated with user, but unsaved
     if @appointment.save
       redirect_to appointment_path(@appointment)
-    else #reset user association on failed appointment, set @appointments to not include failed appointment for partial
+    else #reset user association on failed appointment, set @appointments to disclude unpersisted appointment for partial
       @appointment.user = nil
       @appointments = current_user.appointments.select { |appt| appt.persisted? }
       render :new
