@@ -4,6 +4,9 @@ class LocationsController < ApplicationController
 
   def index
     @locations = current_user.locations
+    if !params[:location].blank?
+      @locations = current_user.locations.search(params[:location])
+    end
   end
 
   def new

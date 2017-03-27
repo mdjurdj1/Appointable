@@ -10,6 +10,6 @@ class User < ApplicationRecord
   # scope :upcoming_appointments, -> { joins(:appointments).where('appointments.start_time > ?', DateTime.now) }
 
   def upcoming_appointments
-    appointments.order(start_time: :desc).select{|appt| appt.start_time > DateTime.now}
-  end 
+    self.appointments.order(start_time: :desc).select{|appt| appt.start_time > DateTime.now}
+  end
 end

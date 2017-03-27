@@ -1,1 +1,9 @@
+<div>
+  <h4>Search By Name:</h4>
+  <%= form_tag("/locations", method: :get) do %>
+    <%= text_field_tag "location" %>
+    <%= submit_tag "Search" %>
+    <% end %>
+  </div> <br />
+<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 <%= render(@locations) || "You haven't saved any locations yet!" %>

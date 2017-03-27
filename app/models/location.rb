@@ -1,8 +1,11 @@
 class Location < ApplicationRecord
   validates :name, presence: true
 
-  has_many :users
+  belongs_to :user
   has_many :appointments
+  scope :search, lambda {|search| where(["name LIKE ?", "%#{search}%"])}
 
+  def has_upcoming_appointments
 
+  end
 end
