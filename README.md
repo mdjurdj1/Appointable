@@ -9,7 +9,8 @@ A simple RoR-based appointment manager which allows users to keep track of appoi
 
 ## Video Walkthrough
 
-!(http://imgur.com/a/bgP2c)
+![Screenshot](http://imgur.com/a/bgP2c)
+
 
 ## Installation
 
