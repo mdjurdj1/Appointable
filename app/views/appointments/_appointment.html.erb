@@ -1,15 +1,17 @@
-<fieldset>
-  <legend><%= appointment.name %></legend>
-</fieldset>
+<div class="boxed">
+  <fieldset>
+    <legend><%= appointment.name %></legend>
+  </fieldset>
 
-<p><strong>Description</strong>: <%= appointment.description %></p>
-<p><strong>Start Time</strong>: <%= appt_start_time(appointment) %></p>
-<p><strong>Contact</strong>: <% if has_complete_fields?(appointment.contact) %>
-    <%= link_to appointment.contact.name, contact_path(appointment.contact) %> | <%= appointment.contact.email %> | <%= appointment.contact.phone_number %></p>
-<% else %>
-   <%= "Incomplete contact information. Please update with 'Edit'!" %></p>
-<% end %>
-<p><strong>Location</strong>: <%= link_to appointment.location.name, location_path(appointment.location) %></p>
+  <p><strong>Description</strong>: <%= appointment.description %></p>
+  <p><strong>Start Time</strong>: <%= appt_start_time(appointment) %></p>
+  <p><strong>Contact</strong>: <% if has_complete_fields?(appointment.contact) %>
+      <%= link_to appointment.contact.name, contact_path(appointment.contact) %> | <%= appointment.contact.email %> | <%= appointment.contact.phone_number %></p>
+  <% else %>
+     <%= "Incomplete contact information. Please update with 'Edit'!" %></p>
+  <% end %>
+  <p><strong>Location</strong>: <%= link_to appointment.location.name, location_path(appointment.location) %></p>
 
-<%= link_to "Edit", edit_appointment_path(appointment) %> | <%= link_to "Delete", @appointment, method: :delete, data: { confirm: "Are you sure you want to delete this appointment?" } %> | <%= link_to "Back", appointments_path %>
-<br /><br />
+  <%= link_to "Edit", edit_appointment_path(appointment) %> | <%= link_to "Delete", @appointment, method: :delete, data: { confirm: "Are you sure you want to delete this appointment?" } %> | <%= link_to "Back", appointments_path %>
+  <br />
+</div>
