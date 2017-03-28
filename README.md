@@ -7,6 +7,9 @@ A simple RoR-based appointment manager which allows users to keep track of appoi
 * Save appointments with associated contact and location info.
 * Search through contacts and locations by name, with full CRUD functionality.
 
+## Video Walkthrough
+
+[Imgur](http://imgur.com/a/bgP2c)
 
 ## Installation
 
