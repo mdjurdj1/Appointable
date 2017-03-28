@@ -12,7 +12,7 @@
   <body class="<%= body_class %>">
       <%= render 'layouts/navbar' %>
       <div class="main container">
-        <%= render 'layouts/errors' %>
+        <%= render 'layouts/errors' unless current_page = root_path %>
         <%= yield %>
       </div><!--/container-->
     <%= render 'layouts/footer' %>
