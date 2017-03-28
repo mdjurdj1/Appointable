@@ -5,7 +5,7 @@ module Appointable
   end
 
   def list_upcoming_appointments
-    self.appointments.order(start_time: :desc).select{|appt| appt.start_time > DateTime.now}
+    self.appointments.order(start_time: :asc).select{|appt| appt.start_time > DateTime.now}
   end
 
 end
