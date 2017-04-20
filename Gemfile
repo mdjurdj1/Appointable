@@ -37,7 +37,7 @@ gem "therubyracer"
 gem "simple_calendar", "~> 2.0"
 gem 'omniauth'
 gem "omniauth-facebook"
-gem "figaro"
+gem "dotenv-rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
