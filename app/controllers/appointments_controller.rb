@@ -45,6 +45,12 @@ class AppointmentsController < ApplicationController
     redirect_to appointments_path
   end
 
+  def list
+    respond_to do |f|
+      f.json { render json: current_user.appointments }
+    end
+  end
+
 
   private
   def set_appointments

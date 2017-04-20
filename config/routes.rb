@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   root 'welcome#home'
   get '/auth/facebook/callback' => 'sessions#create'
+  get '/list', to: 'appointments#list'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
