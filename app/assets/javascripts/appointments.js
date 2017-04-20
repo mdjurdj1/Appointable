@@ -20,8 +20,10 @@ var listAppointments = () => {
         </fieldset>
         <p><strong>Description</strong>: ${value['description']}</p>
         <p><strong>Start Time</strong>: ${value['start_time']}</p>
-        <p><strong>Contact</strong>: ${value['contact']['name']} - ${value['contact']['email']} - ${value['contact']['phone_number']}</p>
-        <p><strong>Location</strong>: ${value['location']['name']}</p>
+        <p><strong>Contact</strong>: <a href="contacts/${value['contact']['id']}">${value['contact']['name']}</a>
+         - ${value['contact']['email']} - ${value['contact']['phone_number']}</p>
+        <p><strong>Location</strong>: <a href="locations/${value['location']['id']}">${value['location']['name']}</a></p>
+        <fieldset><legend></legend></fieldset>
         <a href='/appointments/${value['id']}/edit'>Edit</a> |
         <a data-confirm="Are you sure?" data-method="delete" href="/appointments/${value['id']}" rel="nofollow">Delete</a> |
         <a href="/appointments">Back</a>
