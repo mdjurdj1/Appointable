@@ -1,3 +1,8 @@
+var Contact = function(data) {
+  this.email = data.id;
+  this.phone_number = data.phone_number;
+};
+
 var nextContact = () => {
     var url = $("#next_contact").attr("data-nextUrl")
     $.get(url, function(data) {
@@ -43,6 +48,34 @@ var showAppointments = () => {
     }
   })
   return false
+}
+
+var createContactFromForm = (values) => {
+  $.ajax({
+      url: '/contacts.json',
+      type: 'POST',
+      data: values,
+      dataType: 'JSON',
+      success: function(data) {
+      var contact = new Contact(data);
+      // var response = location.buildLocation({skipIndexLink: true});
+      var response = `
+        <div class="boxed">
+        <fieldset>
+          <legend>${data['name']}</legend>
+        </fieldset>
+        <p><strong>Email</strong>: ${data['email']}</p>
+        <p><strong>Phone Number</strong>: ${data['phone_number']}</p>
+        <p><a href="" class="link" data-thisId="${data['id']}" onclick="showAppointments(); return false;">Click to view upcoming appointments with this Contact.</a></p>
+        <ul id="contactAppts"></ul>
+        <fieldset><legend></legend></fieldset>
+        <a href='/contacts/${data['id']}/edit'>Edit</a> |
+        <a data-confirm="Are you sure?" data-method="delete" href="/contacts/${data['id']}" rel="nofollow">Delete</a> |
+        <a href="/contacts">Back</a>
+        </div><br />`
+      $('#hiddenContactField').html(response);
+    }
+  });
 }
 
 var showContactForm = () => {

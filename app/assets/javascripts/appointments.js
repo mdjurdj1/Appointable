@@ -6,8 +6,7 @@ var attachListeners = () => {
   $("#newContactForm").submit(function(e) {
     e.preventDefault()
     var values = $(this).serialize()
-    console.log(values)
-    submitContactForm(values)
+    createContactFromForm(values)
   })
 }
 
@@ -38,8 +37,31 @@ var listAppointments = () => {
   })
 }
 
-var submitContactForm = (values) => {
-
+var createContactFromForm = (values) => {
+  $.ajax({
+      url: '/contacts.json',
+      type: 'POST',
+      data: values,
+      dataType: 'JSON',
+      success: function(data) {
+      var contact = new Contact(data);
+      // var response = location.buildLocation({skipIndexLink: true});
+      var response = `
+        <fieldset>
+          <legend>${data['name']}</legend>
+        </fieldset>
+        <p><strong>Email</strong>: ${data['email']}</p>
+        <p><strong>Phone Number</strong>: ${data['phone_number']}</p>
+        <p><a href="" class="link" data-thisId="${data['id']}" onclick="showAppointments(); return false;">Click to view upcoming appointments with this Contact.</a></p>
+        <ul id="contactAppts"></ul>
+        <fieldset><legend></legend></fieldset>
+        <a href='/contacts/${data['id']}/edit'>Edit</a> |
+        <a data-confirm="Are you sure?" data-method="delete" href="/contacts/${data['id']}" rel="nofollow">Delete</a> |
+        <a href="/contacts">Back</a>
+        <br />`
+      $('.main').html(response);
+    }
+  });
 }
 
 $(() => {
