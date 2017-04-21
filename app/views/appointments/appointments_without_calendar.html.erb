@@ -3,9 +3,9 @@
 </fieldset>
 
 <% if @appointments.length == 1 %>
-<h4 class="notice">You have <%=@appointments.length%> upcoming appointment.</h4><br/><br/>
+<h4 class="notice">You have <%=@appointments.length%> upcoming appointment.</h4><br/>
 <% elsif @appointments.length > 1 %>
-<h4 class="notice">You have <%=@appointments.length%> upcoming appointments.</h4><br/><br/>
+<h4 class="notice">You have <%=@appointments.length%> upcoming appointments.</h4><br/>
 <% else %>
 No appointments were found! <br /><br />
 <% end %>

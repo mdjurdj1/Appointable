@@ -33,7 +33,6 @@ var nextContact = () => {
 var showAppointments = () => {
   var contactId = $(".link").attr("data-thisId")
   var contactDataUrl = `/contacts/${contactId}/get`
-  $(".link").hide()
   $("#contactAppts").append("<p><strong>Appointments List</strong></p>")
   $.get(contactDataUrl, function(data) {
     if (data !== null) {
@@ -53,7 +52,6 @@ var showAppointments = () => {
 var showAppointmentsForId = (id) => {
   var contactId = id
   var contactDataUrl = `/contacts/${id}/get`
-  $(".link").hide()
   $(`#contact${id}Appts`).html("")
   $(`#contact${id}Appts`).append("<p><strong>Appointments List</strong></p>")
   $.get(contactDataUrl, function(data) {
@@ -64,7 +62,7 @@ var showAppointmentsForId = (id) => {
         </li>`
         $(`#contact${id}Appts`).append(appointmentLi)
       })
-    } 
+    }
   })
   return false
 }

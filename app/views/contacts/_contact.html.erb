@@ -7,7 +7,7 @@
   <p><strong>Phone Number: </strong><%= contact.phone_number %></p>
 
   <% if contact.appointments.any? %>
-  <p><a href="" class="showApptLink" id="show<%=contact.id%>" data-thisId="<%=contact.id%>">Click to view upcoming appointments with this Contact.</a></p>
+  <p><a href="#" class="showApptLink" id="show<%=contact.id%>" data-thisId="<%=contact.id%>">Click to view upcoming appointments with this Contact.</a></p>
   <ul id="contact<%=contact.id%>Appts"></ul>
   <% end %>
 

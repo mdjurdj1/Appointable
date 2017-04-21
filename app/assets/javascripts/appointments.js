@@ -8,7 +8,7 @@ var attachListeners = () => {
     var values = $(this).serialize()
     createContactFromForm(values)
   })
-  $("a.showApptLink").click(function(e) {
+  $(".showApptLink").click(function(e) {
     e.preventDefault()
     var id = $(this).attr("data-thisId")
     showAppointmentsForId(id)
@@ -16,7 +16,6 @@ var attachListeners = () => {
 }
 
 var listAppointments = () => {
-  alert("HEY")
   $("#list_appointments").hide()
   $(".notice").hide()
   $.get('/list', function(data) {
@@ -43,7 +42,6 @@ var listAppointments = () => {
 }
 
 
-
-$(() => {
+$(document).on('turbolinks:load', function() {
   attachListeners()
 })
