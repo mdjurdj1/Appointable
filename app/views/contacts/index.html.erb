@@ -12,9 +12,9 @@
 
 <%= render(@contacts) || "You haven't saved any contacts yet!" %>
 
-<div class="hidden" id="newContactForm">
+<div class="hidden" id="hiddenContactField">
   <div class="boxed">
-    <%= form_for Contact.new do |f| %>
+    <%= form_for Contact.new, html: {id: "newContactForm"}  do |f| %>
     <table>
       <tr>
         <td><%= f.label :name %></td>
@@ -31,7 +31,7 @@
         <td class="left"><%= f.text_field :phone_number %> </td>
       </tr>
       <tr> <td></td>
-        <td class="left"><%= f.submit %></td>
+        <td class="left"><%= f.submit :id=>"createContact" %></td>
       </tr>
       </table>
       <% end %>

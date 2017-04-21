@@ -1,10 +1,18 @@
 var attachListeners = () => {
-  $("#list_appointments").on("click", function() {
+  $("#list_appointments").click(function(e) {
+    e.preventDefault()
     listAppointments()
+  })
+  $("#newContactForm").submit(function(e) {
+    e.preventDefault()
+    var values = $(this).serialize()
+    console.log(values)
+    submitContactForm(values)
   })
 }
 
 var listAppointments = () => {
+  alert("HEY")
   $("#list_appointments").hide()
   $(".notice").hide()
   $.get('/list', function(data) {
@@ -30,8 +38,8 @@ var listAppointments = () => {
   })
 }
 
-var nextContact = () => {
-  
+var submitContactForm = (values) => {
+
 }
 
 $(() => {

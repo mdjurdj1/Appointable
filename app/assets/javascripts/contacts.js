@@ -44,3 +44,7 @@ var showAppointments = () => {
   })
   return false
 }
+
+var showContactForm = () => {
+  $('#hiddenContactField').removeClass('hidden');
+}
