@@ -1,7 +1,3 @@
-$(document).ready(function() {
-  attachListeners()
-})
-
 var attachListeners = () => {
   $("#list_appointments").on("click", function() {
     listAppointments()
@@ -33,3 +29,11 @@ var listAppointments = () => {
     })
   })
 }
+
+var nextContact = () => {
+  
+}
+
+$(() => {
+  attachListeners()
+})

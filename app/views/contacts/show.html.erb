@@ -2,4 +2,12 @@
 <%= render partial: 'contact', locals: {contact: @contact} %>
 <% else %>
 No such contact was found!
-<% end %>
+<% end %> <br />
+
+&nbsp &nbsp &nbsp <button type="button" id="next_contact" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="previousContact()">
+   Previous
+ </button>
+
+ &nbsp &nbsp &nbsp <button type="button" id="next_contact" data-nextUrl="/contacts/<%=(@contact.id.to_i + 1)%>" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+    Next
+  </button>

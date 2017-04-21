@@ -42,6 +42,11 @@ class ContactsController < ApplicationController
     redirect_to contacts_path
   end
 
+  def get
+    respond_to do |f|
+      f.json { render json: current_user.contacts.find_by_id(params[:id]) }
+    end
+  end
 
   private
   def set_contact
