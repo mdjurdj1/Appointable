@@ -1,26 +1,43 @@
+////CONTACT MODEL AND PROTOTYPE METHODS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 var Contact = function(data) {
-  this.email = data.id;
-  this.phone_number = data.phone_number;
-};
+  this.name = data.name
+  this.email = data.email
+  this.phone_number = data.phone_number
+}
+
+Contact.prototype.showInfoFields = function() {
+  output = `
+  <fieldset>
+    <legend>${this.name}</legend>
+  </fieldset>
+  <p><strong>Email</strong>: ${this.email}</p>
+  <p><strong>Phone Number</strong>: ${this.phone_number}</p>`
+  return output
+}
+
+Contact.prototype.showLinkFields = function() {
+  output = `<a href='/contacts/${this.id}/edit'>Edit</a> |
+  <a data-confirm="Are you sure?" data-method="delete" href="/contacts/${this.id}" rel="nofollow">Delete</a> |
+  <a href="/contacts">Back</a>`
+  return output
+}
+
+////AJAX REQUEST FUNCTION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 var nextContact = () => {
     var url = $("#next_contact").attr("data-nextUrl")
     $.get(url, function(data) {
       if (data !== null) {
+        let currentContact = new Contact(data)
         var next_url = `/contacts/${data['id']+1}/get`
         $(".boxed").empty()
           var contact_div = `
-            <fieldset>
-              <legend>${data['name']}</legend>
-            </fieldset>
-            <p><strong>Email</strong>: ${data['email']}</p>
-            <p><strong>Phone Number</strong>: ${data['phone_number']}</p>
+            ${currentContact.showInfoFields()}
             <p><a href="" class="link" data-thisId="${data['id']}" onclick="showAppointments(); return false;">Click to view upcoming appointments with this Contact.</a></p>
             <ul id="contactAppts"></ul>
             <fieldset><legend></legend></fieldset>
-            <a href='/contacts/${data['id']}/edit'>Edit</a> |
-            <a data-confirm="Are you sure?" data-method="delete" href="/contacts/${data['id']}" rel="nofollow">Delete</a> |
-            <a href="/contacts">Back</a>
+            ${currentContact.showLinkFields()}
             <br />`
           $(".boxed").append(contact_div)
           $("#next_contact").attr("data-nextUrl", next_url)
@@ -74,26 +91,22 @@ var createContactFromForm = (values) => {
       data: values,
       dataType: 'JSON',
       success: function(data) {
-      var contact = new Contact(data);
+      let currentContact = new Contact(data);
       // var response = location.buildLocation({skipIndexLink: true});
       var response = `
         <div class="boxed">
-        <fieldset>
-          <legend>${data['name']}</legend>
-        </fieldset>
-        <p><strong>Email</strong>: ${data['email']}</p>
-        <p><strong>Phone Number</strong>: ${data['phone_number']}</p>
+        ${currentContact.showInfoFields()}
         <p><a href="" class="link" data-thisId="${data['id']}" onclick="showAppointments(); return false;">Click to view upcoming appointments with this Contact.</a></p>
         <ul id="contactAppts"></ul>
         <fieldset><legend></legend></fieldset>
-        <a href='/contacts/${data['id']}/edit'>Edit</a> |
-        <a data-confirm="Are you sure?" data-method="delete" href="/contacts/${data['id']}" rel="nofollow">Delete</a> |
-        <a href="/contacts">Back</a>
+        ${currentContact.showLinkFields()}
         </div><br />`
       $('#hiddenContactField').html(response);
     }
   });
 }
+
+//// LOADING LISTENERS AND LISTENER DEPENDENCIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 var showContactForm = () => {
   $('#hiddenContactField').removeClass('hidden');
