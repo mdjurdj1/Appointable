@@ -50,6 +50,25 @@ var showAppointments = () => {
   return false
 }
 
+var showAppointmentsForId = (id) => {
+  var contactId = id
+  var contactDataUrl = `/contacts/${id}/get`
+  $(".link").hide()
+  $(`#contact${id}Appts`).html("")
+  $(`#contact${id}Appts`).append("<p><strong>Appointments List</strong></p>")
+  $.get(contactDataUrl, function(data) {
+    if (data !== null) {
+      $(data['appointments']).each(function(index, value) {
+        var appointmentLi = `<li>
+        <a href="/appointments/${value['id']}">${value['name']}</a> | ${value['start_time']}
+        </li>`
+        $(`#contact${id}Appts`).append(appointmentLi)
+      })
+    } 
+  })
+  return false
+}
+
 var createContactFromForm = (values) => {
   $.ajax({
       url: '/contacts.json',

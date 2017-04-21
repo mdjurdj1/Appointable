@@ -6,8 +6,10 @@
   <p><strong>Email: </strong><%= contact.email %></p>
   <p><strong>Phone Number: </strong><%= contact.phone_number %></p>
 
-  <p><a href="" class="link" data-thisId="<%=contact.id%>" onclick="showAppointments(); return false;">Click to view upcoming appointments with this Contact.</a></p>
-  <ul id="contactAppts"></ul>
+  <% if contact.appointments.any? %>
+  <p><a href="" class="showApptLink" id="show<%=contact.id%>" data-thisId="<%=contact.id%>">Click to view upcoming appointments with this Contact.</a></p>
+  <ul id="contact<%=contact.id%>Appts"></ul>
+  <% end %>
 
   <fieldset><legend></legend></fieldset>
 
