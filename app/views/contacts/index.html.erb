@@ -11,3 +11,34 @@
   </div> <br />
 
 <%= render(@contacts) || "You haven't saved any contacts yet!" %>
+
+<div class="hidden" id="newContactForm">
+  <div class="boxed">
+    <%= form_for Contact.new do |f| %>
+    <table>
+      <tr>
+        <td><%= f.label :name %></td>
+        <td class="left"><%= f.text_field :name %> </td>
+      </tr>
+
+        <tr>
+          <td><%= f.label :email %></td>
+          <td class="left"><%= f.text_field :email %> </td>
+        </tr>
+
+      <tr>
+        <td><%= f.label :phone_number, "Phone" %></td>
+        <td class="left"><%= f.text_field :phone_number %> </td>
+      </tr>
+      <tr> <td></td>
+        <td class="left"><%= f.submit %></td>
+      </tr>
+      </table>
+      <% end %>
+    </div>
+  </div><br />
+
+&nbsp &nbsp &nbsp
+<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="showContactForm()">
+  Create New Contact
+</button>
