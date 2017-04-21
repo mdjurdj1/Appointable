@@ -6,9 +6,8 @@
   <p><strong>Email: </strong><%= contact.email %></p>
   <p><strong>Phone Number: </strong><%= contact.phone_number %></p>
 
-  <% if contact.has_upcoming_appointments? %>
-    <p><%= link_to "Click to view upcoming appointments with this Contact.", contact_appointments_path(contact) %></p>
-  <% end %>
+  <p><a href="" class="link" data-thisId="<%=@contact.id%>" onclick="showAppointments(); return false;">Click to view upcoming appointments with this Contact.</a></p>
+  <ul id="contactAppts"></ul>
 
   <fieldset><legend></legend></fieldset>
 

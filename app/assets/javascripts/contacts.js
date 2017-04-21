@@ -31,12 +31,16 @@ var showAppointments = () => {
   $(".link").hide()
   $("#contactAppts").append("<p><strong>Appointments List</strong></p>")
   $.get(contactDataUrl, function(data) {
-    $(data['appointments']).each(function(index, value) {
-      var appointmentLi = `<li>
-      <a href="/appointments/${value['id']}">${value['name']}</a>
-      </li> <br />`
-      $("#contactAppts").append(appointmentLi)
-    })
+    if (data !== null) {
+      $(data['appointments']).each(function(index, value) {
+        var appointmentLi = `<li>
+        <a href="/appointments/${value['id']}">${value['name']}</a> | ${value['start_time']}
+        </li>`
+        $("#contactAppts").append(appointmentLi)
+      })
+    } else {
+      $("#contactAppts").append("No appointments were found for this contact.")
+    }
   })
   return false
 }
