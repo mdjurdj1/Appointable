@@ -109,5 +109,6 @@ var createContactFromForm = (values) => {
 //// LOADING LISTENERS AND LISTENER DEPENDENCIES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 var showContactForm = () => {
+  $('button').hide()
   $('#hiddenContactField').removeClass('hidden');
 }
