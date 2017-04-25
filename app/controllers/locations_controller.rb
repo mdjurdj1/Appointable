@@ -42,9 +42,9 @@ class LocationsController < ApplicationController
     redirect_to locations_path
   end
 
-  def get
+  def getAppointmentData
     respond_to do |f|
-      f.json { render json: current_user.locations.find_by_id(params[:id]) }
+      f.json { render json: current_user.locations.find_by_id(params[:id]).appointments }
     end
   end
 

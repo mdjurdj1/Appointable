@@ -69,31 +69,8 @@ var attachListeners = () => {
     var id = $(this).attr("data-thisId")
     showAppointmentsForId(id)
   })
-  $('#showModal').on('show.bs.modal', function (event) {
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    var id = $(this).attr('data-id')
-    var modalData = fetch(`/locations/${id}/get`).then(data => data.to_json)
-    var modal = $(this)
-    modal.append(`
-    <div class="modal-dialog" role="document">
-       <div class="modal-content">
-         <div class="modal-header">
-           <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-           </button>
-         </div>
-         <div class="modal-body">
-         ${modalData}
-         </div>
-         <div class="modal-footer">
-           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-           <button type="button" class="btn btn-primary">Send message</button>
-         </div>
-       </div>
-      </div>
-    `)
+  $('#showModal').on('show.bs.modal', function () {
+    $('#appointmentModa').focus()
   })
 }
 

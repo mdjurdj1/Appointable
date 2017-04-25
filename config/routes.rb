@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#create'
   get '/list', to: 'appointments#list'
   get '/contacts/:id/get', to: 'contacts#get'
-  get '/locations/:id/get', to: 'locations#get'
+  get '/locations/:id/getAppointmentData', to: 'locations#getAppointmentData'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
