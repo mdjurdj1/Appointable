@@ -4,7 +4,7 @@
 </fieldset>
 
   <% if location.has_upcoming_appointments? %>
-    <button type="button" id="showModal" class="btn btn-primary" data-toggle="modal" data-id="<%=location.id%>" data-target="#appointmentModal">View Appointments For This Loation</button> <br /><br />
+    <button type="button" id="showModal" class="btn btn-primary" data-toggle="modal" data-id="<%=location.id%>" data-target="#appointmentModal">View Appointments For This Location</button> <br /><br />
   <% end %>
 
   <% if has_empty_fields?(location) %>

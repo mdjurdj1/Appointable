@@ -74,20 +74,27 @@ var attachListeners = () => {
     var id = button.data('id') // Extract info from data-* attributes
     var modal = $(this)
     modal.find(".modal-body").text('')
-    $.get(`/locations/${id}/getAppointmentData`, function(data) {
-      console.log(data)
-      data.forEach((appointment) => {
-         modal.find(".modal-body").append(`
-           <li>
-           <h4>${appointment.name}</h4>
-           <p>Contact: ${appointment.contact.name}</p>
-           <p>${appointment.description}</p>
-           <p>${appointment.start_time}</p>
-           </li>
-           <hr/>
-         `)
-      })
-    })
+    getAppointmentData(id, modal)
+  })
+}
+
+var getAppointmentData = (id, modal) => {
+  var data = $.get(`/locations/${id}/getAppointmentData`, function(data) {
+    renderAppointmentData(data, modal)
+  })
+}
+
+var renderAppointmentData = (data, modal) => {
+  data.forEach((appointment) => {
+     modal.find(".modal-body").append(`
+       <li>
+       <h4>${appointment.name}</h4>
+       <p>Contact: ${appointment.contact.name}</p>
+       <p>${appointment.description}</p>
+       <p>${appointment.start_time}</p>
+       </li>
+       <hr/>
+     `)
   })
 }
 
