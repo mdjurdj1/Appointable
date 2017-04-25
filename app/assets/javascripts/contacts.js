@@ -91,18 +91,17 @@ var createContactFromForm = (values) => {
       data: values,
       dataType: 'JSON',
       success: function(data) {
-      let currentContact = new Contact(data);
-      // var response = location.buildLocation({skipIndexLink: true});
-      var response = `
-        <div class="boxed">
-        ${currentContact.showInfoFields()}
-        <p><a href="" class="link" data-thisId="${data['id']}" onclick="showAppointments(); return false;">Click to view upcoming appointments with this Contact.</a></p>
-        <ul id="contactAppts"></ul>
-        <fieldset><legend></legend></fieldset>
-        ${currentContact.showLinkFields()}
-        </div><br />`
-      $('#hiddenContactField').html(response);
-    }
+        let currentContact = new Contact(data);
+        var response = `
+          <div class="boxed">
+          ${currentContact.showInfoFields()}
+          <p><a href="" class="link" data-thisId="${data['id']}" onclick="showAppointments(); return false;">Click to view upcoming appointments with this Contact.</a></p>
+          <ul id="contactAppts"></ul>
+          <fieldset><legend></legend></fieldset>
+          ${currentContact.showLinkFields()}
+          </div><br />`
+        $('#hiddenContactField').html(response);
+      }
   });
 }
 

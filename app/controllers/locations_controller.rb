@@ -42,6 +42,13 @@ class LocationsController < ApplicationController
     redirect_to locations_path
   end
 
+  def get
+    respond_to do |f|
+      f.json { render json: current_user.locations.find_by_id(params[:id]) }
+    end
+  end
+
+
   private
   def set_location
     @location = current_user.locations.find_by(id: params[:id])
