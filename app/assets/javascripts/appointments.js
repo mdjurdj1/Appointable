@@ -69,8 +69,25 @@ var attachListeners = () => {
     var id = $(this).attr("data-thisId")
     showAppointmentsForId(id)
   })
-  $('#showModal').on('show.bs.modal', function () {
-    $('#appointmentModa').focus()
+  $('#appointmentModal').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var id = button.data('id') // Extract info from data-* attributes
+    var modal = $(this)
+    modal.find(".modal-body").text('')
+    $.get(`/locations/${id}/getAppointmentData`, function(data) {
+      console.log(data)
+      data.forEach((appointment) => {
+         modal.find(".modal-body").append(`
+           <li>
+           <h4>${appointment.name}</h4>
+           <p>Contact: ${appointment.contact.name}</p>
+           <p>${appointment.description}</p>
+           <p>${appointment.start_time}</p>
+           </li>
+           <hr/>
+         `)
+      })
+    })
   })
 }
 
