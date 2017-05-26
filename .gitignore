@@ -25,3 +25,5 @@
 
 # Ignore dotenv setup
 /.env
+/public/packs
+/node_modules

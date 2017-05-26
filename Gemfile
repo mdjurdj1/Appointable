@@ -40,6 +40,7 @@ gem 'omniauth'
 gem "omniauth-facebook"
 gem "dotenv-rails"
 gem 'handlebars_assets'
+gem 'webpacker', '~> 2.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
